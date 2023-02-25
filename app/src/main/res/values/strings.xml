@@ -9,4 +9,8 @@
     <string name="enter_required_skill">Enter Required Skill</string>
     <string name="enter_who_can_apply">Enter Who can apply</string>
     <string name="post_job">Post Job</string>
+    <string name="profile">profile</string>
+    <string name="filter">filter</string>
+    <string name="search">search</string>
+    <string name="hintSearchMess">Search Job, Internship</string>
 </resources>

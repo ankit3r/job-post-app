@@ -8,25 +8,106 @@
     android:layout_height="match_parent"
     tools:context=".activity.MainActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/toolLayout"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/topAppBar"
+        style="@style/Widget.MaterialComponents.Toolbar.Primary"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        app:menu="@menu/logout"
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/topAppBar"
-            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+        android:layout_height="?attr/actionBarSize"
+        app:title="@string/app_name" />
+
+    <RelativeLayout
+        android:id="@+id/filterLayout"
+        android:visibility="visible"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/topAppBar">
+        <HorizontalScrollView
             android:layout_width="match_parent"
-            app:menu="@menu/logout"
-            android:layout_height="?attr/actionBarSize"
-            app:title="@string/app_name" />
-    </com.google.android.material.appbar.AppBarLayout>
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent">
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/layout_btnFilter1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/bg"
+                    style="@style/spinnerLayoutStyle">
+                    <Spinner
+                        android:id="@+id/btnFilter1"
+                        android:layout_width="wrap_content"
+                        android:minWidth="100dp"
+                        android:backgroundTint="@color/white"
+                        android:layout_height="wrap_content"/>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/layout_btnFilter2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/bg"
+                    android:layout_toEndOf="@id/layout_btnFilter1"
+                    style="@style/spinnerLayoutStyle">
+                    <Spinner
+                        android:id="@+id/btnFilter2"
+                        android:layout_width="wrap_content"
+                        android:minWidth="100dp"
+                        android:backgroundTint="@color/white"
+                        android:layout_height="wrap_content"/>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/layout_btnFilter3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/bg"
+                    android:layout_toEndOf="@id/layout_btnFilter2"
+                    style="@style/spinnerLayoutStyle">
+                    <Spinner
+                        android:id="@+id/btnFilter3"
+                        android:layout_width="wrap_content"
+                        android:minWidth="100dp"
+                        android:backgroundTint="@color/white"
+                        android:layout_height="wrap_content"/>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    app:cardCornerRadius="8dp"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="5dp"
+                    app:cardElevation="5dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_toEndOf="@id/layout_btnFilter3">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/filter"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        />
+                </androidx.cardview.widget.CardView>
+            </RelativeLayout>
+        </HorizontalScrollView>
+
+
+
+    </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcMain"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/toolLayout"
+        android:layout_below="@id/filterLayout"
         android:padding="5dp"
         tools:listitem="@layout/rc_main_items" />
 

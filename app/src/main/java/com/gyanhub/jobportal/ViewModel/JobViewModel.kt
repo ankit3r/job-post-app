@@ -1,12 +1,15 @@
 package com.gyanhub.jobportal.ViewModel
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.gyanhub.jobportal.repository.JobRepository
 import com.gyanhub.jobportal.room.JobTableEntity
 import com.gyanhub.jobportal.room.UserEntity
 
 class JobViewModel(private val repository: JobRepository) : ViewModel() {
+
+    var byJobs: String = "All"
 
     fun getJob(): LiveData<List<JobTableEntity>> {
         return repository.getJobs()
@@ -24,4 +27,11 @@ class JobViewModel(private val repository: JobRepository) : ViewModel() {
         repository.addUser(userEntity)
     }
 
+    private val byJobMutibleList = MutableLiveData<List<String>>()
+    val byJob: LiveData<List<String>>
+        get() = byJobMutibleList
+
+    init {
+        byJobMutibleList.postValue(listOf("All", "Job", "Internship"))
+    }
 }

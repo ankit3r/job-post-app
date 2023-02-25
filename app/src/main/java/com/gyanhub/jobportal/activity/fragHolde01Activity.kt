@@ -14,7 +14,6 @@ class fragHolde01Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityFragHolde01Binding.inflate(layoutInflater)
         setContentView(binding.root)
-
         setUpToolBar()
         binding.topAppBar.title = "Job Post"
 
